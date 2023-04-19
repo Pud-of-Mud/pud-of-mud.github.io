@@ -1,3 +1,8 @@
+body, html {
+  margin: 0px;
+  padding: 0px;
+}
+
 h1 {
   color: black;
 }
@@ -5,3 +10,18 @@ h1 {
 p {
   color: black;
 }
+
+.mainDiv {
+  width: 300%;
+  height: 100%;
+  position: absolute;
+}
+
+.leftDiv, .rightDiv, centerDiv {
+  width: 90%;
+  height: 90%;
+  margin: 10%;
+} 
+.leftDiv { background-color: red; align-self: left;}
+.rightDiv { background-color: blue; align-self: right;}
+.centerDiv { background-color: green; align-self: center;}
