@@ -2,7 +2,7 @@ body, html {
   margin: 0px;
   padding: 0px;
 }
-
+/*
 h1 {
   color: black;
 }
@@ -15,13 +15,16 @@ p {
   width: 300%;
   height: 100%;
   position: absolute;
+  background-image: linear-gradient(rgb(10,10,10),rgb(50,50,50));
 }
 
 .leftDiv, .rightDiv, centerDiv {
   width: 90%;
   height: 90%;
   margin: 10%;
+  position: absolute;
 } 
 .leftDiv { background-color: red; align-self: left;}
 .rightDiv { background-color: blue; align-self: right;}
 .centerDiv { background-color: green; align-self: center;}
+*/
