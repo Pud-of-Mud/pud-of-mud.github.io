@@ -8,3 +8,4 @@ the website can always be found at:
 ## Credits
 * Made by @Pud-of-Mud
 * Pure.css by [purecss.io](https://purecss.io/base/)
+* Images provided by [500px.com](https://www.500px.com/)
