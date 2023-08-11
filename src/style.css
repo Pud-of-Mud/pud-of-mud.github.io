@@ -3,27 +3,71 @@ body, html {
   padding: 0px;
 }
 
-h1 {
-  color: black;
+.TopNavigation {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 25px;
+  background-color: black;
 }
-
-p {
-  color: black;
-}
-
-.mainDiv {
-  width: 300%;
-  height: 100%;
-  position: absolute;
-  background-image: linear-gradient(rgb(10,10,10),rgb(50,50,50));
-}
-
-.leftDiv, .rightDiv, centerDiv {
-  width: 90%;
-  height: 90%;
-  margin: 10%;
-  position: absolute;
+.TopNavigation a {
+  color: white;
+  background-color: grey;
+  padding: 5px;
+  margin: 0px;
 } 
-.leftDiv { background-color: red; align-self: left;}
-.rightDiv { background-color: blue; align-self: right;}
-.centerDiv { background-color: green; align-self: center;}
+.TopNavigation a:hover {
+  color: black;
+  background-color: white;
+}
+
+.HeaddingDiv {
+  width: 100%;
+  height: 300px;
+  background-image: "/src/images/Lake.png"; 
+  margin: 0px;
+  padding: auto;
+  align-items: center;
+} .HeaddingDiv div {
+  width: 230px;
+  height: 150px;
+  background-color: rgba(10, 10, 10, 50);
+  margin: auto;
+}
+.HeaddingDiv h1 {
+  font-size: 20px;
+  color: white;
+}
+.HeaddingDiv p {
+  font-size: 20px;
+  color: white;  
+}
+
+.AboutAndTimelineDiv {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  background-image: "/src/images/Mountain.png";
+} .AboutAndTimelineDiv:nth-child(even) {
+  height: 400px;
+  width: 50%;
+  flex: 1;
+  padding: 20px;
+  margin: 0px;
+  background-color: rgba(0, 0, 50, 50));
+} .AboutAndTimeLineDiv:nth-child(odd) {
+  height: 400px;
+  width: 50%;
+  flex: 1;
+  margin: 0px;
+  padding: 20px;
+  background-color: rgba(50, 0, 0, 50);
+}
+.AboutAndTimelineDiv h2 {
+  color: white;
+}
+.AboutAndTimelineDiv p {
+  color: white;
+}
