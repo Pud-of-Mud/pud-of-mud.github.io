@@ -2,7 +2,7 @@ body, html {
   margin: 0px;
   padding: 0px;
 }
-/*
+
 h1 {
   color: black;
 }
@@ -27,4 +27,3 @@ p {
 .leftDiv { background-color: red; align-self: left;}
 .rightDiv { background-color: blue; align-self: right;}
 .centerDiv { background-color: green; align-self: center;}
-*/
