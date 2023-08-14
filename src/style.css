@@ -24,7 +24,7 @@ body, html {
 .HeaddingDiv {
   width: 100%;
   height: 300px;
-  background-image: "/src/images/Lake.png"; 
+  background-image: url("/src/images/Lake.png"); 
   margin: 0px;
   padding: auto;
   align-items: center;
@@ -49,7 +49,7 @@ body, html {
   width: 100%;
   height: 400px;
   display: flex;
-  background-image: "/src/images/Mountain.png";
+  background-image: url("/src/images/Mountain.png");
 } .AboutAndTimelineDiv:nth-child(even) {
   height: 400px;
   width: 50%;
