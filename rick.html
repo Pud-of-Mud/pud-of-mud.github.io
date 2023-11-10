@@ -1,0 +1,43 @@
+<head>
+    <style>
+        body {
+            background: black;
+            text-align: center;
+        }
+        h1 {
+            font-size: 100px;
+            font-weight: 200;
+            font-family: "Roboto";
+            color: white;
+        }
+        .rick {
+            border: 5px solid white;
+        }
+        p {
+            font-size: 50px;
+            font-weight: 200;
+            font-family: "Roboto";
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>get ricked roll'd lol</h1>
+    <img src="https://i.pinimg.com/originals/78/3d/4f/783d4f34998ae3b3b576e400db0d81df.gif" class="rick">
+    <p>I got ur ip address too</p>
+    <p id="ipAddressP"></p> 
+    
+    <script>
+    fetch('https://api.ipify.org/?format=json')
+        .then(response => response.json())
+        .then(data => {
+            // Accessing the value
+            const ipValue = data.ip;
+
+            // Setting the value to the HTML element
+            document.getElementById('ipAddressP').innerText = ipValue;
+        })
+        
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
