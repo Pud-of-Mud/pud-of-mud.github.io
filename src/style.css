@@ -149,13 +149,14 @@ div.parallax:after {
 
 .search-container {
   position: relative;
+	margin: auto;
 }
 .search-bar {
-  width: 300px; /* Set your desired width */
+  width: 600px; /* Set your desired width */
   padding: 10px;
-  border: 3px solid white;
-  border-radius: 5px;
-  background-color: rgba(192, 192, 192, 0.5); /* Set your desired transparency */
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  background-color: rgba(20, 20, 20, 0.3); /* Set your desired transparency */
   outline: none;
 }
 .search-bar::placeholder {
