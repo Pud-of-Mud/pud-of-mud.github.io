@@ -148,19 +148,20 @@ div.parallax:after {
 }
 
 .search-container {
-  position: relative;
-	margin: auto;
+  margin: auto;
 }
 .search-bar {
-  width: 600px; /* Set your desired width */
+  width: 600px;
+  color: white;
   padding: 10px;
   border-left: 3px solid white;
   border-right: 3px solid white;
-  background-color: rgba(20, 20, 20, 0.3); /* Set your desired transparency */
+  background-color: rgba(20, 20, 20, 0.3); 
   outline: none;
+  margin: auto;
 }
 .search-bar::placeholder {
-  color: #fff; /* Set your desired placeholder color */
+  color: #fff; 
 }
 
 
