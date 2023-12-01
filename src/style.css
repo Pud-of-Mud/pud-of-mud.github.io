@@ -202,6 +202,9 @@ footer a {
   word-spacing: -0.6;
   padding-left: 20px;
   position: static;
+  text-decoration: none;
+} footer a:hover {
+  text-decoration: underline;
 }
 
 .GamesFlashDiv {
