@@ -147,13 +147,18 @@ div.parallax:after {
   }
 }
 
-#search {
+#searchDiv {
+  margin: auto;
+  align-content: center;
+} #searchDiv h1 {
+  text-align: center;
+}#searchBar {
   width: 500px;
   height: 40px;
   background: rgba(20, 20, 20, 0.4);
   border-left: 3px solid white;
   border-right: 3px solid white;
-}
+} 
 
 button {
   font-family: 'Roboto', Courier, monospace;
