@@ -3,16 +3,67 @@
   <head>
     <title>Homepage</title>
     <link rel="icon" type="image/x-icon" href="https://bouncingdvdlogo.com/logos/dvdlogo-04.svg">
-    <style>
-      h1 {
-        font-size: 100px;
-        font-color: green;
-      } body {
-        background-color: black;
-      }
-    </style>
+    <link href="/src/style.css" rel="stylesheet" type="text/css" />
+    <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="#games" class="gameTopNav">All Games</a>
+      <a href="#retro" class="retroTopNav">Retro Games</a>>
+      <a href="#flash" class="flashTopNav">Flash Games</a>
+      <a href="index.html#emulators" class="emuTopNav">Emulators</a>
+      <a href="index.html#proxy" class="proxyTopNav">Proxy</a>
+      <a href="Bookmarklets.html" class="scriptTopNav">Script</a>
+      <a href="links.html" class="altTopNav">Alt Links</a>
+      <h1 class="font-effect-fire" id="Welcome">Welcome.</h1>
+  </div>
   </head>
   <body>
-  <h1>You're not supposed to be here</h1>
+    
+    <!-- Star background -->
+    <div class="parallax">
+      <div id='stars' class="parallax"></div>
+      <div id='stars2' class="parallax"></div>
+      <div id='stars3' class="parallax"></div> 
+    </div>
+    
+    <div>
+    	<h2 id="games">HTML5 Games</h2>
+      <ul>
+        <li><button onclick="messWithYou()">I do nothing right now.</button></li>
+        <li><a href="/games/adarkroom/index.html"><button>A Dark Room</button></a></li>
+        <li><a href="https://tetralegends.app/"><button>Tetris</button></a></li>
+        <li><a href="/games/cookieclickers/index.html"><button>Cookie Clickers</button></a></li>
+        <li><a href="/games/2048/index.html"><button>2048</button></a></li>
+        <li><a href="/games/sm64/index.html"><button>Super Mario 64</button></a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3>Emulators</h3>
+      <ul>
+        <li><a href="/projects/emulators.html">All Emulators</a></li>
+        <li><a href="/projects/emulators.html?core=autodetect&rom=https://pud-of-mud.github.io/roms/SMB.zip">Super Mario Bros</a></li>
+        <li><a href="/projects/emulators.html?core=autodetect&rom=https://pud-of-mud.github.io/roms/SMW.zip">Super Mario World</a></li>
+        <li><a href="/projects/emulators.html?core=autodetect&rom=https://pud-of-mud.github.io/roms/SF2.zip">Street Fighter</a></li>
+        <li><a href="/projects/emulators.html?core=autodetect&rom=https://pud-of-mud.github.io/roms/PFRRandomizer.zip">Pokemon Fire-Red Randomizer</a></li>
+      </ul>
+    </div>
+
+    
   </body>
+  
+<!-- Footer, copyright, and TOS -->
+<footer> 
+    <p id="footer">
+      <a><b>Copyright information: </b>This website is protected under the MIT licence and use of this software without credit is illegal. The MIT licence can be found<a href=""> here.</a></p>
+      <p> | </p>
+      <a href="PrivacyPolicy.html">Privacy Policy</a> <p> | </p>
+      <a href="PrivacyPolicy.html#Terms">Terms of Service</a> <p> | </p> 
+      <a href="about.html">©MuddBud Studios</a> <p> | </p> 
+      <a href="mailto:muddbudstudios@gmail.com">Submit an Idea</a> <p> | </p>
+      <a href="mailto:muddbudstudios@gmail.com">Report a Bug</a> <p> | </p>
+      <a href="mailto:muddbudstudios@gmail.com">Takedown Request</a>
+    </p>
+</footer>
+  <script src="script.js"></script>
+  <script async src="https://api.countapi.xyz/hit/pud0fmud.repl.co/6ef99f76-8f0c-46c4-83b0-fc32bd22baf1?callback=websiteVisits"></script>
 </html>
