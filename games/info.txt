@@ -1,18 +1,1 @@
-                   /"-._
-                  .'     `-.
-                 /     _    `\
-      ..--""--_/     ( "0 )  |
-    .'           \      `-.-   \
-   /        \    \      ,__)    \
-  /        |\    |____,'      |
- /        | |  /  `           |
-|        | / /    |          / \
- \        \/_/     |         |./'\
-  \_________\      \         \    \
-           `.-.     |   \    \    \
-             | \    |    |  /     |
-             \  \__.'    /.'      /
-              >.        <        /
-             /    `._.'    \__.'
-            /  /`  /  /`   /
-            \__/\ /__/(__.'
+If you are the owner of any pieces of software being held here, please notify me if you wish to have it removed. 
