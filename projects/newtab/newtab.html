@@ -1,6 +1,7 @@
 <head>
   <link href='https://fonts.googleapis.com/css?family=roboto' rel='stylesheet'>
-
+  <link rel="stylesheet" href="style.css">
+  
   <title>New Tab</title>
   
   <!-- Topnav; might not need, may just be settings -->
@@ -10,25 +11,29 @@
 
 </head>
 <body>
+  <div class="bodyDiv">
+  	
+    <!-- Greeting -->
+  	<div>
+    	<h1>Good Morning/Afternoon</h1>
+  	</div>
   
-  <!-- Greeting -->
-  <div>
-    <h1>Good Morning/Afternoon</h1>
+  	<!-- Search bar; will use Duckduckgo as default -->
+  	<div>
+    	<form action="https://duckduckgo.com/" method="get">
+      	<input type="text" name="q" placeholder="Search Duckduckgo..." onkeyup="if(event.key==='Enter'){this.form.submit();}">
+    	</form>
+  	</div>
+  
   </div>
-  
-  <!-- Search bar; will use Duckduckgo as default -->
-  <div>
-    <form action="https://duckduckgo.com/" method="get">
-      <input type="text" name="q" placeholder="Search Duckduckgo..." onkeyup="if(event.key==='Enter'){this.form.submit();}">
-    </form>
-  </div>
-  
   <!-- Footer; should be minimalistic -->
   <footer>
-    <a href="">Muddbud Studios</a>
-    <a href="">License</a>
-    <a href="">Github</a>
-    <a href="">About</a>
+  	<div>
+    	<a href="">Muddbud Studios</a>
+    	<a href="">License</a>
+    	<a href="">Github</a>
+    	<a href="">About</a>
+    </div>
   </footer>
   
 </body>
