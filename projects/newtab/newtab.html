@@ -1,25 +1,27 @@
 <head>
+  <link href='https://fonts.googleapis.com/css?family=roboto' rel='stylesheet'>
 
   <title>New Tab</title>
   
   <!-- Topnav; might not need, may just be settings -->
   <div>
-    <img src="/src/svg/arrow-left.svg">
+    <img onclick="settingsOpen()" id="settingsButton" src="/src/svg/arrow-left.svg">
   </div>
 
 </head>
 <body>
   
   <!-- Greeting -->
-  <h1>Good Morning/Afternoon</h1>
+  <div>
+    <h1>Good Morning/Afternoon</h1>
+  </div>
   
   <!-- Search bar; will use Duckduckgo as default -->
-  
-  <!-- Search functionality for Duckduckgo -->
-  <form action="https://duckduckgo.com/" method="get">
-    <input type="text" name="q" placeholder="Search Duckduckgo...">
-    <input type="submit" value="Search">
-  </form>
+  <div>
+    <form action="https://duckduckgo.com/" method="get">
+      <input type="text" name="q" placeholder="Search Duckduckgo..." onkeyup="if(event.key==='Enter'){this.form.submit();}">
+    </form>
+  </div>
   
   <!-- Footer; should be minimalistic -->
   <footer>
