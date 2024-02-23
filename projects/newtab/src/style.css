@@ -45,3 +45,14 @@ input {
 } input:hover {
   background-color: rgba(250,250,250,0.3);
 }
+
+/* footer; should only be gradient and links  */
+footer {
+  width: 100%;
+  height: 30px;
+  background-image: linear-gradient(to top, rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.2), rgba(50,50,50,0.0));
+} footer.a {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+} 
