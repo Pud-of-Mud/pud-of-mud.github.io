@@ -18,6 +18,8 @@ var img13 = document.getElementById('model-img13');
 var img14 = document.getElementById('model-img14');
 var img15 = document.getElementById('model-img15');
 var img16 = document.getElementById('model-img16');
+var img17 = document.getElementById('model-img17');
+
 
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
@@ -98,6 +100,11 @@ img15.onclick = function(){
   captionText.innerHTML = this.alt;
 }
 img16.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img17.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
