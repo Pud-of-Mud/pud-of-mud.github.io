@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      font-size: 2em;
+      border: 2px solid #333;
+      cursor: pointer;
+    }
+  </style>
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+
+  <h1>Tic Tac Toe</h1>
+
+  <div id="board"></div>
+
+  <script>
+    // Game state
+    let currentPlayer = 'X';
+    let board = ['', '', '', '', '', '', '', '', ''];
+
+    // Create the game board
+    const boardElement = document.getElementById('board');
+    
+    for (let i = 0; i < 9; i++) {
+      const cell = document.createElement('div');
+        
+      cell.className = 'cell';
+      cell.addEventListener('click', () => makeMove(i));
+        
+      boardElement.appendChild(cell);
+    }
+
+    // Function to handle a player's move
+    function makeMove(index) {
+      if (board[index] === '' && !isGameOver()) {
+        board[index] = currentPlayer;
+        updateBoard();
+        if (isWinner()) {
+          alert(`${currentPlayer} wins!`);
+          resetGame();
+        } else if (board.every(cell => cell !== '')) {
+          alert('It\'s a draw!');
+          resetGame();
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+      }
+    }
+
+    // Function to update the visual representation of the board
+    function updateBoard() {
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach((cell, index) => {
+        cell.textContent = board[index];
+      });
+    }
+
+    // Function to check if a player has won
+    function isWinner() {
+      const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+      ];
+
+      return winPatterns.some(pattern => {
+        const [a, b, c] = pattern;
+        return board[a] !== '' && board[a] === board[b] && board[a] === board[c];
+      });
+    }
+
+    // Function to check if the game is over
+    function isGameOver() {
+      return isWinner() || board.every(cell => cell !== '');
+    }
+
+    // Function to reset the game
+    function resetGame() {
+      currentPlayer = 'X';
+      board = ['', '', '', '', '', '', '', '', ''];
+      updateBoard();
+    }
+  </script>
+
+</body>
+</html>
