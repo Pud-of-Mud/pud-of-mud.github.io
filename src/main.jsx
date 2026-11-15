@@ -2,6 +2,19 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
+const projectImages = import.meta.glob('/src/assets/images/portfolio/**/*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+
+function getProjectImage(imagePath) {
+  const assetPath = `/src/assets/images/${imagePath.replace(/^main\/images\//, '')}`;
+  const resolvedPath = projectImages[assetPath];
+  if (!resolvedPath) throw new Error(`Missing project image: ${imagePath}`);
+  return resolvedPath;
+}
+
 const pages = [
   { id: 'home', label: 'HOME', command: 'intro' },
   { id: 'portfolio', label: 'PORTFOLIO', command: 'portfolio' },
@@ -40,7 +53,7 @@ const projects = [
     description: 'Entry in the Computer Science Honor Society’s first annual game jam.',
     tags: ['GAME DEV', 'UNITY'],
     image: 'main/images/portfolio/DistractedDriving/cover.gif',
-    href: 'https://pud-of-mud.github.io/games/DistractedDriving/index.html',
+    href: '/games/distraced-driving/index.html',
   },
   {
     number: '02',
@@ -185,7 +198,7 @@ function WorkPage({ pageIndex, pageSize, pageCount }) {
           <article className="project-card" key={project.number}>
             <div className="project-topline"><span>{project.number} — {project.type}</span></div>
             <div className="project-media-row">
-              <img className="project-image" src={`https://pud-of-mud.github.io/${encodeURI(project.image)}`} alt={`${project.name} preview`} loading="lazy" />
+              <img className="project-image" src={getProjectImage(project.image)} alt={`${project.name} preview`} loading="lazy" />
               <div className="project-content">
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
