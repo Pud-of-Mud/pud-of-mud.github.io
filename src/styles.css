@@ -31,6 +31,7 @@ a { color: inherit; }
   filter: drop-shadow(0 22px 28px rgba(0,0,0,.7));
 }
 .monitor-screen {
+  position: relative;
   height: min(680px, 82vh, calc(100svh - 64px));
   min-height: min(520px, calc(100svh - 64px));
   padding: 15px;
@@ -177,7 +178,7 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
 .project-card { padding: 11px 0; border-bottom: 1px solid var(--line); }
 .project-topline { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 10px; }
 .project-media-row { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
-.project-image { display: block; width: 104px; height: 62px; flex: 0 0 104px; border: 1px solid var(--line); background: #080b08; object-fit: cover; }
+.project-image { display: block; width: 104px; height: 62px; flex: 0 0 104px; background: #080b08; object-fit: cover; }
 .project-content { min-width: 0; flex: 1; }
 .project-content h3 { margin: 0 0 5px; color: var(--green); font-size: 15px; font-weight: 400; text-shadow: 0 0 10px rgba(183,217,154,.55); }
 .project-content p, .about-copy p { max-width: 590px; margin: 0 0 4px; color: #d0d5c7; font-size: 11px; line-height: 1.5; }
@@ -189,6 +190,53 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
 .page-indicator { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: auto; padding-top: 12px; text-align: right; color: var(--muted); font-size: 9px; }
 .page-scroll-hint { display: none; }
 .home-page-indicator, .contact-page-indicator { display: none; }
+.work-page, .about-page { position: relative; }
+.work-page .page-indicator, .about-page .page-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 42px;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.work-page .page-scroll-hint, .about-page .page-scroll-hint { display: inline; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .06em; }
+.work-heading { display: flex; flex-direction: column; align-items: flex-start; }
+.directory-back {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 9px;
+  text-align: left;
+}
+.directory-back:hover { color: var(--green); }
+.directory-back:focus-visible { outline: 1px solid var(--green); outline-offset: 3px; }
+.project-directory {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  padding: 8px 0 32px;
+  border-top: 1px solid var(--line);
+}
+.project-folder {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 12px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: #d0d5c7;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: left;
+}
+.project-folder:hover, .project-folder:focus-visible { color: var(--green); background: rgba(183,217,154,.06); }
+.project-folder-icon { width: 15px; height: 15px; flex: 0 0 15px; fill: rgba(211,184,120,.08); stroke: #d3b878; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2; }
+.project-folder-count { margin-left: auto; color: var(--muted); font-size: 9px; }
 .about-copy { margin-top: 10px; }
 .about-copy p { max-width: 650px; margin-bottom: 16px; font-size: 14px; }
 .tool-heading { margin: 25px 0 10px; color: var(--green); font-size: 13px; font-weight: 400; }
@@ -210,6 +258,54 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
   animation: link-pulse 1.5s linear infinite;}
 .terminal-footer { display: flex; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
 .terminal-footer a { text-decoration: none; }
+.project-image-button {
+  display: block;
+  flex: 0 0 104px;
+  width: 104px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.project-image-button:focus-visible { outline: 1px solid var(--green); outline-offset: 3px; }
+.project-image { width: 100%; }
+.image-viewer {
+  position: absolute;
+  z-index: 8;
+  inset: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 38px 32px 20px;
+  background: #050805;
+}
+.image-viewer-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: #050805;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 10px;
+}
+.image-viewer-close:hover { background: var(--green); color: #000; }
+.image-viewer-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  outline: 1px solid rgba(183,217,154,.55);
+  outline-offset: 1px;
+}
+.image-viewer-description { flex: 0 0 auto; max-width: 760px; margin: 0; color: #d0d5c7; font-size: 12px; line-height: 1.5; text-align: center; }
+.image-viewer-description strong { color: var(--green); font-weight: 400; }
 
 @keyframes link-pulse {
   0% { text-shadow: 0 0 15px rgba(183,217,154,.55); }
@@ -235,14 +331,23 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
   .terminal-page { padding: 23px 20px 22px; }
   .hero-copy { padding: 50px 0; }
   .project-media-row { gap: 7px; }
-  .project-image { width: 64px; height: 48px; flex-basis: 64px; }
+  .project-image-button { width: 64px; flex-basis: 64px; }
+  .project-image { height: 48px; }
   .project-content h3 { font-size: 12px; }
   .project-content p { font-size: 9px; line-height: 1.4; }
   .project-tags { flex-basis: 82px; justify-content: flex-end; gap: 3px; font-size: 7px; }
   .page-stage { touch-action: none; }
   .page-indicator { justify-content: space-between; }
+  .work-page .page-indicator, .about-page .page-indicator { bottom: 9px; left: 20px; }
+  .work-page .project-directory { gap: 0 12px; padding-top: 4px; }
+  .work-page .project-folder { gap: 6px; padding: 10px 2px; font-size: 9px; }
+  .work-page .project-folder-icon { width: 13px; height: 13px; flex-basis: 13px; }
+  .work-page .project-folder-count { font-size: 8px; }
   .home-page-indicator, .contact-page-indicator { display: flex; }
   .page-scroll-hint { display: inline; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .06em; }
+  .image-viewer { inset: 0; gap: 8px; padding: 42px 14px 16px; }
+  .image-viewer-close { top: 10px; right: 12px; }
+  .image-viewer-description { font-size: 10px; }
   .about-page .section-title { margin: 18px 0 16px; font-size: 24px; }
   .about-page .about-copy { margin-top: 12px; }
   .about-page .about-copy p { max-width: 620px; margin-bottom: 18px; color: #e0e4d8; font-size: 14px; line-height: 1.7; }
@@ -274,6 +379,7 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
   .project-card { padding: 3px 0; }
   .project-media-row { margin-top: 3px; }
   .project-image { width: 56px; height: 42px; flex-basis: 56px; }
+  .project-image-button { width: 56px; flex-basis: 56px; }
   .project-tags { flex-basis: 70px; }
   .project-content h3 { margin-bottom: 2px; }
   .page-indicator { padding-top: 2px; }

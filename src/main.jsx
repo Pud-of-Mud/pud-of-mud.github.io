@@ -22,10 +22,10 @@ const pages = [
   { id: 'contact', label: 'CONTACT', command: 'contact' },
 ];
 
-function PageIndicator({ pageIndex, pageCount, className = '' }) {
+function PageIndicator({ pageIndex, pageCount, className = '', showScrollHint = false }) {
   return (
     <div className={`page-indicator ${className}`} aria-label={`Page ${pageIndex + 1} of ${pageCount}`}>
-      <span className="page-scroll-hint">↕ SWIPE / SCROLL</span>
+      <span className="page-scroll-hint">{showScrollHint ? '↕ ARROWS / SCROLL' : '↕ SWIPE / SCROLL'}</span>
       <span>(page {pageIndex + 1}/{pageCount})</span>
     </div>
   );
@@ -49,7 +49,7 @@ const projects = [
   {
     number: '01',
     name: 'Distracted Driving',
-    type: 'GAME JAM',
+    types: ['GAME DEV / DESIGN'],
     description: 'Entry in the Computer Science Honor Society’s first annual game jam.',
     tags: ['GAME DEV', 'UNITY'],
     image: 'main/images/portfolio/DistractedDriving/cover.gif',
@@ -58,7 +58,7 @@ const projects = [
   {
     number: '02',
     name: 'Code For A While 2025',
-    type: 'AI / DATA',
+    types: ['AI / DATA'],
     description: 'Regional high-school computing challenge entry: a decision tree model predicting voter outcomes from large datasets.',
     tags: ['DECISION TREE', 'AI'],
     image: 'main/images/portfolio/CodeForAWhile2025/Decision Tree.png',
@@ -66,7 +66,7 @@ const projects = [
   {
     number: '03',
     name: 'The Survivors',
-    type: 'WEB',
+    types: ['WEB DEV / DESIGN'],
     description: 'Interactive media and proxy-services website, planned, designed, and programmed; reached about 200,000 visits annually.',
     tags: ['WEB', '200K VISITS / YR'],
     image: 'main/images/portfolio/TheSurvivors/TheSurvivorsWebsite.gif',
@@ -74,7 +74,7 @@ const projects = [
   {
     number: '04',
     name: 'Driveway Sports Car',
-    type: '3D RENDER',
+    types: ['3D WORK'],
     description: 'A Blender 3D composite placing a sports car in the driveway.',
     tags: ['BLENDER', '3D'],
     image: 'main/images/portfolio/3DRenders/car.gif',
@@ -82,7 +82,7 @@ const projects = [
   {
     number: '05',
     name: 'Personal Portfolio',
-    type: 'WEB',
+    types: ['WEB DEV / DESIGN'],
     description: 'This personal portfolio site, designed and programmed with interactive HTML, CSS, and JavaScript.',
     tags: ['HTML', 'CSS', 'JAVASCRIPT'],
     image: 'main/images/portfolio/PortfolioSite/ThisSite.png',
@@ -90,7 +90,7 @@ const projects = [
   {
     number: '06',
     name: 'Loon Render',
-    type: '3D RENDER',
+    types: ['3D WORK'],
     description: 'A 3D loon render.',
     tags: ['BLENDER', '3D'],
     image: 'main/images/portfolio/3DRenders/loon-render.png',
@@ -98,7 +98,7 @@ const projects = [
   {
     number: '07',
     name: 'Team Fortress 2 Workshop',
-    type: 'GAME DESIGN',
+    types: ['GAME DEV / DESIGN'],
     description: 'A 72-hour Team Fortress 2 game design challenge using Hammer World Editor; featured on the Steam Community Workshop.',
     tags: ['HAMMER EDITOR', 'TF2'],
     image: 'main/images/portfolio/TF2/TF2-workshop-page.png',
@@ -106,7 +106,7 @@ const projects = [
   {
     number: '08',
     name: 'VRChat — Screen Space',
-    type: 'VR WORLD',
+    types: ['3D WORK', 'VR WORK'],
     description: 'Modeled, programmed, and designed as part of VRChat worlds with 28.6K visits and official VRChat publication.',
     tags: ['UNITY', 'VRCHAT'],
     image: 'main/images/portfolio/VRChatWorlds/World-Screen-Space.png',
@@ -114,7 +114,7 @@ const projects = [
   {
     number: '09',
     name: 'VRChat — Sunset Beach',
-    type: 'VR WORLD',
+    types: ['3D WORK', 'VR WORK'],
     description: 'Modeled, programmed, and designed as part of VRChat worlds with 28.6K visits and official VRChat publication.',
     tags: ['UNITY', 'VRCHAT'],
     image: 'main/images/portfolio/VRChatWorlds/World-Sunset-Beach.png',
@@ -122,7 +122,7 @@ const projects = [
   {
     number: '10',
     name: 'VRChat — Wii Play Billiards',
-    type: 'VR WORLD',
+    types: ['3D WORK', 'VR WORK'],
     description: 'Modeled, programmed, and designed as part of VRChat worlds with 28.6K visits and official VRChat publication.',
     tags: ['UNITY', 'VRCHAT'],
     image: 'main/images/portfolio/VRChatWorlds/World-Wii-Play-Billiards.png',
@@ -130,7 +130,7 @@ const projects = [
   {
     number: '11',
     name: 'VRChat — Forest Fire',
-    type: 'VR WORLD',
+    types: ['3D WORK', 'VR WORK'],
     description: 'Modeled, programmed, and designed as part of VRChat worlds with 28.6K visits and official VRChat publication.',
     tags: ['UNITY', 'VRCHAT'],
     image: 'main/images/portfolio/VRChatWorlds/World-Forest-Fire.png',
@@ -138,7 +138,7 @@ const projects = [
   {
     number: '12',
     name: 'SlimeVR Trackers',
-    type: 'HARDWARE / VR',
+    types: ['HARDWARE', 'VR WORK'],
     description: 'Planned, 3D-modeled, and developed multiple trackers for full-body VR tracking through SteamVR integration.',
     tags: ['3D MODELING', 'STEAMVR'],
     image: 'main/images/portfolio/SlimeVR/finished.JPG',
@@ -146,7 +146,7 @@ const projects = [
   {
     number: '13',
     name: 'AI Python App',
-    type: 'SOFTWARE',
+    types: ['AI / DATA', 'SOFTWARE'],
     description: 'Python AI chat app using OpenAI’s API; switches language model engines at runtime while preserving chat history.',
     tags: ['PYTHON', 'OPENAI API'],
     image: 'main/images/portfolio/AIPythonApp/AIPythonApp.png',
@@ -154,7 +154,7 @@ const projects = [
   {
     number: '14',
     name: 'VR Physics Demo',
-    type: 'VR TECH DEMO',
+    types: ['VR WORK', 'GAME DEV / DESIGN'],
     description: 'Unity VR demo using real-world object weights and physics-based interactions between player and environment.',
     tags: ['UNITY', 'VR', 'PHYSICS'],
     image: 'main/images/portfolio/VRPhysicsDemo/VRPhysicsDemo-UnityPreview.png',
@@ -162,7 +162,7 @@ const projects = [
   {
     number: '15',
     name: 'VRChat — Modern Apartment',
-    type: 'VR WORLD',
+    types: ['3D WORK', 'VR WORK'],
     description: 'Modeled, programmed, and designed as part of VRChat worlds with over 30K visits and official VRChat publication.',
     tags: ['UNITY', 'VRCHAT'],
     image: 'main/images/portfolio/VRChatWorlds/World-Modern-Apartment.png',
@@ -170,7 +170,7 @@ const projects = [
   {
     number: '16',
     name: 'Protogen Composite',
-    type: '3D ANIMATION',
+    types: ['3D WORK'],
     description: 'A Blender 3D animation composited into real-world footage.',
     tags: ['BLENDER', 'COMPOSITING'],
     image: 'main/images/portfolio/3DRenders/after-proto.gif',
@@ -178,7 +178,7 @@ const projects = [
   {
     number: '17',
     name: '1974 Kawasaki G5 100',
-    type: 'RESTORATION',
+    types: ['CARS'],
     description: 'A fully restored 1974 Kawasaki G5 100 motorcycle.',
     tags: ['MOTORCYCLE', 'RESTORATION'],
     image: 'main/images/portfolio/Motorcycle/motorcycle.jpg',
@@ -187,29 +187,66 @@ const projects = [
 
 const projectsPerPage = 3;
 const aboutPageCount = 3;
+const projectTypes = [...new Set(projects.flatMap((project) => project.types))]
+  .sort((first, second) => first.localeCompare(second));
 
-function WorkPage({ pageIndex, pageSize, pageCount }) {
-  const pageProjects = projects.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
+function WorkPage({ pageIndex, pageSize, pageCount, selectedType, onSelectType, onBack, onOpenImage }) {
+  const typeProjects = selectedType
+    ? projects.filter((project) => project.types.includes(selectedType))
+    : [];
+  const pageProjects = typeProjects.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
   return (
     <section className="terminal-page work-page" id="portfolio" aria-labelledby="work-title">
-      <h2 id="work-title" className="section-title">Projects <span className="project-count">({projects.length})</span></h2>
-      <div className="project-list">
-        {pageProjects.map((project) => (
-          <article className="project-card" key={project.number}>
-            <div className="project-topline"><span>{project.number} — {project.type}</span></div>
-            <div className="project-media-row">
-              <img className="project-image" src={getProjectImage(project.image)} alt={`${project.name} preview`} loading="lazy" />
-              <div className="project-content">
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                {project.href && <a className="project-link" href={project.href} target="_blank" rel="noreferrer">PLAY ↗</a>}
-              </div>
-              <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <PageIndicator pageIndex={pageIndex} pageCount={pageCount} />
+      {selectedType ? (
+        <>
+          <div className="work-heading">
+            <button type="button" className="directory-back" onClick={onBack}>‹ ALL TYPES</button>
+            <h2 id="work-title" className="section-title">{selectedType} <span className="project-count">({typeProjects.length})</span></h2>
+          </div>
+          <div className="project-list">
+            {pageProjects.map((project) => (
+              <article className="project-card" key={project.number}>
+                <div className="project-topline"><span>{project.number} — {project.types.join(' / ')}</span></div>
+                <div className="project-media-row">
+                  <button
+                    type="button"
+                    className="project-image-button"
+                    onClick={(event) => onOpenImage(project, event.currentTarget)}
+                    aria-label={`View ${project.name} image fullscreen`}
+                  >
+                    <img className="project-image" src={getProjectImage(project.image)} alt={`${project.name} preview`} loading="lazy" />
+                  </button>
+                  <div className="project-content">
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    {project.href && <a className="project-link" href={project.href} target="_blank" rel="noreferrer">PLAY ↗</a>}
+                  </div>
+                  <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <h2 id="work-title" className="section-title">Projects <span className="project-count">({projects.length})</span></h2>
+          <div className="project-directory" aria-label="Project types">
+            {projectTypes.map((type) => {
+              const count = projects.filter((project) => project.types.includes(type)).length;
+              return (
+                <button type="button" className="project-folder" key={type} onClick={() => onSelectType(type)}>
+                  <svg className="project-folder-icon" viewBox="0 0 16 18" aria-hidden="true">
+                    <path d="M1.5 5.5v-2h4.8l1.8 2h6.4v9h-13z" />
+                  </svg>
+                  <span>{type}</span>
+                  <span className="project-folder-count">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
+      <PageIndicator pageIndex={pageIndex} pageCount={pageCount} showScrollHint />
     </section>
   );
 }
@@ -268,7 +305,7 @@ function AboutPage({ pageIndex }) {
           </div>
         </>
       )}
-      <PageIndicator pageIndex={pageIndex} pageCount={aboutPageCount} />
+      <PageIndicator pageIndex={pageIndex} pageCount={aboutPageCount} showScrollHint />
     </section>
   );
 }
@@ -295,6 +332,8 @@ function App() {
   const [workPage, setWorkPage] = useState(0);
   const [workPageSize, setWorkPageSize] = useState(projectsPerPage);
   const [aboutPage, setAboutPage] = useState(0);
+  const [selectedProjectType, setSelectedProjectType] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [flickerKey, setFlickerKey] = useState(0);
   const [flickerLines, setFlickerLines] = useState([]);
   const stageRef = useRef(null);
@@ -302,12 +341,21 @@ function App() {
   const scrollLock = useRef(false);
   const transitionTimeout = useRef(null);
   const touchStartY = useRef(null);
-  const projectPageCount = Math.ceil(projects.length / workPageSize);
+  const imageViewerCloseRef = useRef(null);
+  const imageTriggerRef = useRef(null);
+  const visibleProjectCount = selectedProjectType
+    ? projects.filter((project) => project.types.includes(selectedProjectType)).length
+    : 0;
+  const projectPageCount = selectedProjectType
+    ? Math.max(1, Math.ceil(visibleProjectCount / workPageSize))
+    : 1;
 
   const currentPrompt = activePage === 0
     ? { path: 'intro', command: './welcome.sh' }
     : activePage === 1
-    ? { path: 'portfolio', command: `ls ./portfolio --page=${workPage + 1}/${projectPageCount}` }
+    ? { path: 'portfolio', command: selectedProjectType
+    ? `ls ./portfolio/${selectedProjectType.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')} --page=${workPage + 1}/${projectPageCount}`
+      : 'ls ./portfolio' }
       : activePage === 2
         ? aboutPage === 0
           ? { path: 'other', command: 'cat ./README.md' }
@@ -335,7 +383,10 @@ function App() {
     if (nextIndex === activePage) return;
     window.clearTimeout(transitionTimeout.current);
     setActivePage(nextIndex);
-    if (nextIndex === 1) setWorkPage(0);
+    if (nextIndex === 1) {
+      setWorkPage(0);
+      setSelectedProjectType(null);
+    }
     if (nextIndex === 2) setAboutPage(0);
   }, [activePage]);
 
@@ -358,6 +409,13 @@ function App() {
     window.clearTimeout(transitionTimeout.current);
     transitionTimeout.current = window.setTimeout(() => goToPage(activePage + direction), 90);
   }, [aboutPage, activePage, goToPage, projectPageCount, workPage]);
+
+  const openImage = (project, trigger) => {
+    imageTriggerRef.current = trigger;
+    setSelectedImage(project);
+  };
+
+  const closeImage = () => setSelectedImage(null);
 
   const handleWheel = useCallback((event) => {
     if (Math.abs(event.deltaY) < 15) return;
@@ -412,6 +470,24 @@ function App() {
     return () => window.removeEventListener('resize', updateWorkPageSize);
   }, [isStarted]);
 
+  useLayoutEffect(() => {
+    if (!isStarted) return;
+    if (selectedImage) {
+      imageViewerCloseRef.current?.focus();
+      return;
+    }
+    if (imageTriggerRef.current?.isConnected) {
+      imageTriggerRef.current.focus();
+      imageTriggerRef.current = null;
+      return;
+    }
+    const activeViewport = stageRef.current?.querySelector('.page-viewport:not([hidden])');
+    const firstControl = selectedProjectType && activePage === 1
+      ? activeViewport?.querySelector('.project-image-button')
+      : activeViewport?.querySelector('button:not(:disabled), a[href]');
+    firstControl?.focus();
+  }, [activePage, aboutPage, isStarted, selectedImage, selectedProjectType, workPage]);
+
   useEffect(() => {
     if (!isStarted) return undefined;
     const stage = stageRef.current;
@@ -425,39 +501,107 @@ function App() {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       triggerFlicker();
       if (!isStarted) {
-        if (event.key === 'Enter') {
+        if (event.key === 'Enter' || event.key.startsWith('Arrow')) {
           event.preventDefault();
           setIsStarted(true);
         }
         return;
       }
-      if (event.target.closest('a, button:not(.nav-item), input, textarea, select')) return;
-      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault();
-        goToPage(activePage + (event.key === 'ArrowRight' ? 1 : -1));
-      } else if (event.key === 'ArrowDown' || event.key === 'PageDown') {
-        event.preventDefault();
-        if (scrollLock.current) return;
-        scrollLock.current = true;
-        movePage(1);
-        window.setTimeout(() => { scrollLock.current = false; }, 260);
-      } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
-        event.preventDefault();
-        if (scrollLock.current) return;
-        scrollLock.current = true;
-        movePage(-1);
-        window.setTimeout(() => { scrollLock.current = false; }, 260);
-      } else if (event.key === 'Home') {
-        event.preventDefault();
-        goToPage(0);
-      } else if (event.key === 'End') {
-        event.preventDefault();
-        goToPage(pages.length - 1);
+      if (selectedImage) {
+        if (event.key === 'Escape' || event.key.startsWith('Arrow')) {
+          event.preventDefault();
+          closeImage();
+        }
+        return;
+      }
+
+      const direction = event.key === 'ArrowRight' ? 1
+        : event.key === 'ArrowLeft' ? -1
+          : event.key === 'ArrowDown' ? 1
+            : event.key === 'ArrowUp' ? -1
+              : 0;
+      if (direction === 0) {
+        if (event.key === 'Home') {
+          event.preventDefault();
+          goToPage(0);
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          goToPage(pages.length - 1);
+        } else if (event.key === 'PageDown') {
+          event.preventDefault();
+          movePage(1);
+        } else if (event.key === 'PageUp') {
+          event.preventDefault();
+          movePage(-1);
+        }
+        return;
+      }
+
+      event.preventDefault();
+      const activeViewport = stageRef.current?.querySelector('.page-viewport:not([hidden])');
+      const pageControls = activeViewport
+        ? Array.from(activeViewport.querySelectorAll('button:not(:disabled), a[href]'))
+        : [];
+      const focusedControl = document.activeElement;
+      const navControls = Array.from(document.querySelectorAll('.terminal-nav .nav-item'));
+      const focusedNavIndex = navControls.indexOf(focusedControl);
+      if (focusedNavIndex >= 0) {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          const nextNavIndex = focusedNavIndex + direction;
+          if (navControls[nextNavIndex]) navControls[nextNavIndex].focus();
+          else goToPage(activePage + direction);
+        } else {
+          const target = direction > 0 ? pageControls[0] : pageControls.at(-1);
+          if (target) target.focus();
+          else movePage(direction);
+        }
+        return;
+      }
+
+      const focusedIndex = pageControls.indexOf(focusedControl);
+      if (focusedIndex >= 0) {
+        if (event.key === 'ArrowRight') {
+          focusedControl.click();
+        } else if (event.key === 'ArrowLeft') {
+          if (activePage === 1 && selectedProjectType) {
+            setWorkPage(0);
+            setSelectedProjectType(null);
+          } else {
+            goToPage(activePage - 1);
+          }
+        } else {
+          const nextIndex = focusedIndex + direction;
+          if (pageControls[nextIndex]) {
+            pageControls[nextIndex].focus();
+          } else if (
+            activePage === 1
+            && !selectedProjectType
+            && ((direction > 0 && focusedIndex === pageControls.length - 1)
+              || (direction < 0 && focusedIndex === 0))
+          ) {
+            goToPage(activePage + direction);
+          } else if (
+            activePage === 1
+            && selectedProjectType
+            && ((direction > 0 && workPage < projectPageCount - 1)
+              || (direction < 0 && workPage > 0))
+          ) {
+            movePage(direction);
+          } else {
+            pageControls[direction > 0 ? 0 : pageControls.length - 1].focus();
+          }
+        }
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        goToPage(activePage + direction);
+      } else if (pageControls.length) {
+        pageControls[direction > 0 ? 0 : pageControls.length - 1].focus();
+      } else {
+        movePage(direction);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activePage, goToPage, isStarted, movePage, triggerFlicker]);
+  }, [activePage, goToPage, isStarted, movePage, projectPageCount, selectedImage, selectedProjectType, triggerFlicker, workPage]);
 
   useLayoutEffect(() => {
     if (!isStarted) return undefined;
@@ -601,7 +745,17 @@ function App() {
                   aria-hidden={activePage !== index}
                 >
                   {index === 0 && <HomePage />}
-                  {index === 1 && <WorkPage pageIndex={workPage} pageSize={workPageSize} pageCount={projectPageCount} />}
+                  {index === 1 && (
+                    <WorkPage
+                      pageIndex={workPage}
+                      pageSize={workPageSize}
+                      pageCount={projectPageCount}
+                      selectedType={selectedProjectType}
+                      onSelectType={(type) => { setWorkPage(0); setSelectedProjectType(type); }}
+                      onBack={() => { setWorkPage(0); setSelectedProjectType(null); }}
+                      onOpenImage={openImage}
+                    />
+                  )}
                   {index === 2 && <AboutPage pageIndex={aboutPage} />}
                   {index === 3 && <ContactPage onHome={() => goToPage(0)} />}
                 </div>
@@ -610,6 +764,35 @@ function App() {
               </>
             )}
           </div>
+          {selectedImage && (
+            <div
+              className="image-viewer"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${selectedImage.name} image`}
+              onClick={closeImage}
+            >
+              <button
+                type="button"
+                className="image-viewer-close"
+                ref={imageViewerCloseRef}
+                autoFocus
+                onClick={closeImage}
+                aria-label="Close fullscreen image"
+              >
+                × CLOSE
+              </button>
+              <img
+                className="image-viewer-image"
+                src={getProjectImage(selectedImage.image)}
+                alt={`${selectedImage.name} full-size preview`}
+                onClick={(event) => event.stopPropagation()}
+              />
+              <p className="image-viewer-description" onClick={(event) => event.stopPropagation()}>
+                <strong>{selectedImage.name}</strong> — {selectedImage.description}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </main>
