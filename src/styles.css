@@ -223,22 +223,31 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
 .project-folder {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   min-width: 0;
-  padding: 12px 4px;
+  padding: 15px 6px;
   border: 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
   color: #d0d5c7;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
   text-align: left;
 }
 .project-folder:hover, .project-folder:focus-visible { color: var(--green); background: rgba(183,217,154,.06); }
-.project-folder-icon { width: 15px; height: 15px; flex: 0 0 15px; fill: rgba(211,184,120,.08); stroke: #d3b878; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2; }
+.project-folder-icon { width: 16px; height: 16px; flex: 0 0 16px; fill: rgba(211,184,120,.08); stroke: #d3b878; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2; }
 .project-folder-count { margin-left: auto; color: var(--muted); font-size: 9px; }
 .about-copy { margin-top: 10px; }
 .about-copy p { max-width: 650px; margin-bottom: 16px; font-size: 14px; }
+.about-overview { min-height: 0; overflow-y: auto; padding-bottom: 24px; }
+.about-overview > .section-title { margin: 8px 0; }
+.about-overview .about-copy { margin: 0 0 8px; }
+.about-overview .about-copy p { margin-bottom: 8px; }
+.about-overview .skills-section-title { margin-top: 26px; }
+.about-overview .skills-tech-list { margin-top: 0; }
+.about-overview .skills-tech-group { padding: 8px 0; }
+.about-overview .skills-tech-group h3 { margin-bottom: 4px; }
+.about-overview .skills-tech-group p { margin-bottom: 3px; }
 .tool-heading { margin: 25px 0 10px; color: var(--green); font-size: 13px; font-weight: 400; }
 .tool-line { margin-top: 20px; color: var(--muted); font-size: 10px; line-height: 1.8; }
 .skills-tech-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin-top: 6px; }
@@ -340,8 +349,8 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
   .page-indicator { justify-content: space-between; }
   .work-page .page-indicator, .about-page .page-indicator { bottom: 9px; left: 20px; }
   .work-page .project-directory { gap: 0 12px; padding-top: 4px; }
-  .work-page .project-folder { gap: 6px; padding: 10px 2px; font-size: 9px; }
-  .work-page .project-folder-icon { width: 13px; height: 13px; flex-basis: 13px; }
+  .work-page .project-folder { gap: 7px; padding: 12px 3px; font-size: 10px; }
+  .work-page .project-folder-icon { width: 14px; height: 14px; flex-basis: 14px; }
   .work-page .project-folder-count { font-size: 8px; }
   .home-page-indicator, .contact-page-indicator { display: flex; }
   .page-scroll-hint { display: inline; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .06em; }
@@ -349,9 +358,17 @@ h1::after, h2::after, h3::after, .typewriter-active::after {
   .image-viewer-close { top: 10px; right: 12px; }
   .image-viewer-description { font-size: 10px; }
   .about-page .section-title { margin: 18px 0 16px; font-size: 24px; }
+  .about-overview > .section-title { margin: 3px 0 8px; font-size: 20px; }
+  .about-overview .skills-section-title { margin-top: 20px; }
   .about-page .about-copy { margin-top: 12px; }
   .about-page .about-copy p { max-width: 620px; margin-bottom: 18px; color: #e0e4d8; font-size: 14px; line-height: 1.7; }
+  .about-overview .about-copy { margin: 0 0 4px; }
+  .about-overview .about-copy p { margin-bottom: 8px; font-size: 11px; line-height: 1.45; }
   .about-page .skills-tech-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; margin-top: 6px; }
+  .about-overview .skills-tech-list { margin-top: 0; }
+  .about-overview .skills-tech-group { padding: 6px 0; }
+  .about-overview .skills-tech-group h3 { margin-bottom: 3px; font-size: 8px; }
+  .about-overview .skills-tech-group p { font-size: 9px; line-height: 1.35; }
   .about-page .skills-tech-group { padding: 9px 0; }
   .about-page .skills-tech-group h3 { margin-bottom: 5px; color: #c9e6aa; font-size: 9px; }
   .about-page .skills-tech-group p { margin-bottom: 4px; color: #e0e4d8; font-size: 10px; line-height: 1.45; }

@@ -186,7 +186,7 @@ const projects = [
 ];
 
 const projectsPerPage = 3;
-const aboutPageCount = 3;
+const aboutPageCount = 2;
 const projectTypes = [...new Set(projects.flatMap((project) => project.types))]
   .sort((first, second) => first.localeCompare(second));
 
@@ -255,17 +255,13 @@ function AboutPage({ pageIndex }) {
   return (
     <section className="terminal-page about-page" id="about" aria-labelledby="about-title">
       {pageIndex === 0 && (
-        <>
+        <div className="about-overview">
           <h2 id="about-title" className="section-title">About</h2>
           <div className="about-copy">
             <p>I’m a thing who wants to make cool stuff! I have a passion for creating engaging virtual experiences and a keen interest in game development.</p>
             <p>I take part in game design competitions, hackathons, and game jams. I’m especially interested in VR/AR and their potential to push the boundaries of interactive media.</p>
           </div>
-        </>
-      )}
-      {pageIndex === 1 && (
-        <>
-          <h2 id="about-title" className="section-title">Skills &amp; Tech</h2>
+          <h2 className="section-title skills-section-title">Skills &amp; Tech</h2>
           <div className="skills-tech-list">
             <section className="skills-tech-group">
               <h3>GAME DEVELOPMENT</h3>
@@ -288,9 +284,9 @@ function AboutPage({ pageIndex }) {
               <p>Blender · Animate · Photoshop · After Effects · Nuke · DaVinci</p>
             </section>
           </div>
-        </>
+        </div>
       )}
-      {pageIndex === 2 && (
+      {pageIndex === 1 && (
         <>
           <h2 id="about-title" className="section-title">Work Experience</h2>
           <div className="experience-list">
@@ -359,8 +355,6 @@ function App() {
       : activePage === 2
         ? aboutPage === 0
           ? { path: 'other', command: 'cat ./README.md' }
-        : aboutPage === 1
-          ? { path: 'other', command: 'cat ./skills-and-tech.txt' }
           : { path: 'other', command: 'cat ./work-experience.txt' }
         : { path: 'other', command: 'open https://pud-of-mud.github.io/' };
 
@@ -560,7 +554,27 @@ function App() {
 
       const focusedIndex = pageControls.indexOf(focusedControl);
       if (focusedIndex >= 0) {
-        if (event.key === 'ArrowRight') {
+        if (
+          activePage === 1
+          && !selectedProjectType
+          && focusedControl.matches('.project-folder')
+        ) {
+          const folders = Array.from(activeViewport.querySelectorAll('.project-folder'));
+          const folderIndex = folders.indexOf(focusedControl);
+          const columnCount = getComputedStyle(activeViewport.querySelector('.project-directory'))
+            .gridTemplateColumns.split(' ').length;
+          let nextFolderIndex = folderIndex;
+          if (event.key === 'ArrowRight' && folderIndex % columnCount < columnCount - 1) {
+            nextFolderIndex += 1;
+          } else if (event.key === 'ArrowLeft' && folderIndex % columnCount > 0) {
+            nextFolderIndex -= 1;
+          } else if (event.key === 'ArrowDown') {
+            nextFolderIndex += columnCount;
+          } else if (event.key === 'ArrowUp') {
+            nextFolderIndex -= columnCount;
+          }
+          if (folders[nextFolderIndex]) folders[nextFolderIndex].focus();
+        } else if (event.key === 'ArrowRight') {
           focusedControl.click();
         } else if (event.key === 'ArrowLeft') {
           if (activePage === 1 && selectedProjectType) {
