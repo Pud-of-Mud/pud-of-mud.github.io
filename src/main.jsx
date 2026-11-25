@@ -331,7 +331,7 @@ function ContactPage({ onHome }) {
       <div className="contact-content">
         <h2 id="contact-title">Find me online.</h2>
         <p className="contact-copy">Contact anytime.</p>
-        <a className="email-link" href="https://matthewmenne.com/" target="_blank" rel="noreferrer"><span>pud-of-mud.github.io</span><span aria-hidden="true">↗</span></a>
+        <a className="email-link" href="https://matthewmenne.com/" target="_blank" rel="noreferrer"><span>matthewmenne.com</span><span aria-hidden="true">↗</span></a>
         <a className="email-link" href="https://github.com/Pud-of-Mud" target="_blank" rel="noreferrer"><span>github.com/Pud-of-Mud</span><span aria-hidden="true">↗</span></a>
         <a className="email-link" href="https://www.linkedin.com/in/matthew-menne/" target="_blank" rel="noreferrer"><span>linkedin.com/in/matthew-menne/</span><span aria-hidden="true">↗</span></a>
         <a className="email-link" href="mailto:matthew@matthewmenne.com" target="_blank" rel="noreferrer"><span>matthew@matthewmenne.com</span><span aria-hidden="true">↗</span></a>
