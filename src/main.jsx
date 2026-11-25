@@ -341,7 +341,7 @@ function ContactPage({ onHome }) {
     </section>
   );
 }
-
+ 
 function App() {
   const [isStarted, setIsStarted] = useState(false);
   const [activePage, setActivePage] = useState(0);
