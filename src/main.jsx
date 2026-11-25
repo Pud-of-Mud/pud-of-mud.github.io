@@ -22,12 +22,21 @@ const pages = [
   { id: 'contact', label: 'CONTACT', command: 'contact' },
 ];
 
-function PageIndicator({ pageIndex, pageCount, className = '', showScrollHint = false }) {
+function PageIndicator({ pageIndex, pageCount, className = '', showScrollHint = false, showScrollCue = false }) {
   return (
-    <div className={`page-indicator ${className}`} aria-label={`Page ${pageIndex + 1} of ${pageCount}`}>
-      <span className="page-scroll-hint">{showScrollHint ? '↕ ARROWS / SCROLL' : '↕ SWIPE / SCROLL'}</span>
-      <span>(page {pageIndex + 1}/{pageCount})</span>
-    </div>
+    <>
+      <div className={`page-indicator ${className}`} aria-label={`Page ${pageIndex + 1} of ${pageCount}`}>
+        {showScrollHint && <span className="page-scroll-hint">↕ ARROWS / SCROLL</span>}
+        <span>(page {pageIndex + 1}/{pageCount})</span>
+      </div>
+      {showScrollCue && (
+        <span className="scroll-cue" role="img" aria-label="Scroll down for more content">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4v15m-6-6 6 6 6-6" />
+          </svg>
+        </span>
+      )}
+    </>
   );
 }
 
@@ -40,7 +49,7 @@ function HomePage() {
           Virtual and immersive technologies developer <span className="hero-divider">/</span> Court Jester
         </p>
       </div>
-      <PageIndicator pageIndex={0} pageCount={1} className="home-page-indicator" />
+      <PageIndicator pageIndex={0} pageCount={1} className="home-page-indicator" showScrollHint showScrollCue />
     </section>
   );
 }
@@ -246,7 +255,12 @@ function WorkPage({ pageIndex, pageSize, pageCount, selectedType, onSelectType, 
           </div>
         </>
       )}
-      <PageIndicator pageIndex={pageIndex} pageCount={pageCount} showScrollHint />
+      <PageIndicator
+        pageIndex={pageIndex}
+        pageCount={pageCount}
+        showScrollHint={Boolean(selectedType) && pageIndex < pageCount - 1}
+        showScrollCue={Boolean(selectedType) && pageIndex < pageCount - 1}
+      />
     </section>
   );
 }
@@ -258,7 +272,7 @@ function AboutPage({ pageIndex }) {
         <div className="about-overview">
           <h2 id="about-title" className="section-title">About</h2>
           <div className="about-copy">
-            <p>I’m a thing who wants to make cool stuff! I have a passion for creating engaging virtual experiences and a keen interest in game development.</p>
+            <p>I’m a person who wants to make cool stuff! I have a passion for creating engaging virtual experiences and a keen interest in game development.</p>
             <p>I take part in game design competitions, hackathons, and game jams. I’m especially interested in VR/AR and their potential to push the boundaries of interactive media.</p>
           </div>
           <h2 className="section-title skills-section-title">Skills &amp; Tech</h2>
@@ -301,7 +315,12 @@ function AboutPage({ pageIndex }) {
           </div>
         </>
       )}
-      <PageIndicator pageIndex={pageIndex} pageCount={aboutPageCount} showScrollHint />
+      <PageIndicator
+        pageIndex={pageIndex}
+        pageCount={aboutPageCount}
+        showScrollHint={pageIndex < aboutPageCount - 1}
+        showScrollCue={pageIndex < aboutPageCount - 1}
+      />
     </section>
   );
 }
@@ -312,9 +331,10 @@ function ContactPage({ onHome }) {
       <div className="contact-content">
         <h2 id="contact-title">Find me online.</h2>
         <p className="contact-copy">Contact anytime.</p>
-        <a className="email-link" href="https://pud-of-mud.github.io/" target="_blank" rel="noreferrer"><span>pud-of-mud.github.io</span><span aria-hidden="true">↗</span></a>
+        <a className="email-link" href="https://matthewmenne.com/" target="_blank" rel="noreferrer"><span>pud-of-mud.github.io</span><span aria-hidden="true">↗</span></a>
         <a className="email-link" href="https://github.com/Pud-of-Mud" target="_blank" rel="noreferrer"><span>github.com/Pud-of-Mud</span><span aria-hidden="true">↗</span></a>
         <a className="email-link" href="https://www.linkedin.com/in/matthew-menne/" target="_blank" rel="noreferrer"><span>linkedin.com/in/matthew-menne/</span><span aria-hidden="true">↗</span></a>
+        <a className="email-link" href="mailto:matthew@matthewmenne.com" target="_blank" rel="noreferrer"><span>matthew@matthewmenne.com</span><span aria-hidden="true">↗</span></a>
       </div>
       <PageIndicator pageIndex={0} pageCount={1} className="contact-page-indicator" />
       <footer className="terminal-footer"><span>MATTHEW MENNE</span><a href="#home" onClick={(event) => { event.preventDefault(); onHome(); }}>↑ HOME</a></footer>
